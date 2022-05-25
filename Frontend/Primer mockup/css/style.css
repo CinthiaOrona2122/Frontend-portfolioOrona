@@ -1,0 +1,238 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+}
+
+article>div.row {
+  margin-bottom: 1rem;
+}
+
+h3,h4 {
+  margin-bottom: 1rem;
+}
+
+a:link,.pen,.plus {
+  color: #3d4949;
+  font-size: 0.8rem;
+}
+
+div.social-icons,.fab,.fas {
+  color: #837979;
+}
+
+div.social-icons:hover {
+  background-color: #98e481;
+}
+div.social-icons>a:link:hover {
+  color: #3d4949;
+}
+
+p.link-contacto {
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+div.segundo-subtitulo {
+  bottom: 15px;
+  position: relative;
+}
+
+p>a:link:hover {
+  color: #4a9cd9;
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  font-size: 0.7rem;
+}
+
+[row="nombre-row"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+[row="subtitulo-row"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+ul.list-group-horizontal {
+  margin-right: 30px;
+}
+
+.list-group-item {
+  padding: 1%;
+}
+
+.list-group-item,a:link {
+  text-decoration: none;
+  border: none;
+}
+
+.list-group-item:hover {
+  color: #4a9cd9;
+}
+
+.list-group-item,.titulo-uba {
+  font-size: 0.7rem;
+  word-wrap: break-word;
+  width: 75px;
+}
+
+.jumbotron {
+  background-image: url("../assets/jumbotron.png");
+  height: 50vh;
+  margin-top: 5vh;
+  background-size: cover;
+  display: flex;
+}
+
+/*Fondo Login*/
+.bg {
+  background-image: url("../assets/programacion.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card-title {
+  margin: 0 3px 1px 0;
+}
+
+.card-text {
+  font-size: 0.8rem;
+  text-align: justify;
+}
+
+.btn {
+  font-size: 0.7rem;
+  border-radius: 7px;
+}
+
+/*Botones info-usuario*/
+.btn {
+  margin: 5px 0 3px 0;
+  border: 1px solid lightgray;
+}
+
+.btn:hover {
+  background: #4a9cd9;
+}
+
+button.btn-outline-light,a:link:hover {
+  color: #3d4949;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #62ade6;
+  color: #3d4949;
+}
+
+.btn-outline-danger:hover {
+  background: #f62929;
+}
+
+/* The progress container (grey background) */
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: #ccc;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 8px;
+  background: #04AA6D;
+  width: 0%;
+}
+
+h5.titulo-progressbar {
+  background: transparent;
+  padding: 8px;
+  width: 75%;
+  margin: 0 auto;
+  border-radius: 50px;
+  border: 1px solid #ebebeb;
+  font-size: 1rem;
+}
+
+.texto-progressbar {
+  font-size: 0.8rem;
+}
+
+.progressbar:not(.circle) svg,
+.progressbar:not(.circle) svg path {
+  border-radius: 20%;
+}
+
+.progressbar svg path:first-child {
+  stroke: #837979;
+}
+
+.progressbar.border{
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.progressbar.border svg path:first-child {
+  stroke: transparent;
+}
+
+.progressbar.line svg {
+  height: 5px;
+}
+
+.progressbar.line.border svg {
+  height: 4px;
+}
+
+.progressbar.circle {
+  position: relative;
+  margin: 0 auto 30px;
+  width: 170px;
+  height: 85px;
+}
+
+.progressbar.circle .progressbar-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-size: 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white !important;
+    font-weight: bold;
+}
+
+.progressbar.circle .progressbar-text::after{
+  content: "%";
+  display: block;
+  font-size: 20px;
+  padding-left: 2px;
+}
+
+.progressbar.blue svg path:last-child {
+  stroke: #5ca7db;
+}
+
+.progressbar.green svg path:last-child {
+  stroke: #9ccd7e;
+}
+
+.progressbar.red svg path:last-child {
+  stroke: #d75959;
+}
+
+.progressbar.yellow svg path:last-child {
+  stroke: #f5c463;
+}

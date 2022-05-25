@@ -1,0 +1,88 @@
+<!--Logros-->
+<!--Modales add - edit - delete-->
+<!-- Add About -->
+<div class="modal fade" id="achieveForm" tabindex="-1" aria-labelledby="addAchiveLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAchieveLabel">Logros</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form novalidate #f="ngForm" [formGroup]="achieveForm" (ngSubmit)="onSubmit(achieveForm.value.id)">
+                    <input type="hidden" formControlName="id" name="id">
+
+                    <div class="form-group">
+                        <input type="text" name="name" formControlName="name" class="form-control" id="name"
+                            placeholder="Título del proyecto">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="description" formControlName="description" class="form-control"
+                            id="description" placeholder="Descripción">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="url" formControlName="url" class="form-control" id="url"
+                            placeholder="Url del proyecto: (max. 100 caracteres)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="project_type" formControlName="project_type" class="form-control"
+                            id="project_type" placeholder="Tipo de proyecto (App, Website etc..)">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button [disabled]="!f.valid" type="submit" class="btn btn-primary">
+                            Save changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-11">
+                <h3>Logros</h3>
+            </div>
+            <div class="col-1" *ngIf="isUserLogged">
+                <!--agregar - plus - modal-->
+                <button class="editButton" type="button" data-bs-toggle="modal" data-bs-target="#achieveForm"
+                    (click)="onNewAchievement()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="article">
+            <ul class="listas">
+                <li *ngFor="let item of achieveList, let i = index" class="listas">
+                    <div class="row">
+                        <div class="col-10 d-sm-block">
+                            <h4>{{item.name}}</h4>
+                            <span><u> Tipo de proyecto: </u>{{item.project_type}}</span>
+                            <p class="card-text">{{item.description}}<br><a routerLink={{item.url}}
+                                    rel="noopener noreferrer">{{item.url}}</a></p>
+                        </div>
+                        <div class="col-1" *ngIf="isUserLogged">
+                            <button class="editButton" type="button" data-bs-toggle="modal"
+                                data-bs-target="#achieveForm" (click)="onEditAchievement(i)">
+                                <i class="fas fa-pen"></i> 
+                            </button>
+                        </div>
+                        <div class="col-1" *ngIf="isUserLogged">
+                            <button (click)="onDeleteAchievement(i)" class="editButton" type="button">
+                                <i class="fa fa-trash"></i> 
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<hr>

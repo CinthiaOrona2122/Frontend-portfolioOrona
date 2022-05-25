@@ -1,0 +1,196 @@
+<!--Start of Static Login Portfolio-->
+<!-- Button trigger modal -->
+<div class="modal fade" id="loginForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="LoginBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="LoginBackdropLabel" class="fw-bold text-center py-5">Bienvenido</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form novalidate [formGroup]="loginForm" (ngSubmit)="onSub($event)">
+                    <div class="mb-4" class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input formControlName="email" type="email" placeholder="Email" name="email"
+                            class="form-control"
+                            [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched }"
+                            required>
+                        <span style="color:#ff0000" *ngIf="loginForm.controls['email'].errors">El email es
+                            requerido.</span>
+                    </div>
+                    <div class="mb-4" class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input formControlName="password" type="password" placeholder="Password" name="password"
+                            class="form-control">
+                        <span style="color:#ff0000" *ngIf="loginForm.controls['password'].errors">La contraseña es
+                            requerida.</span>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary" name="button"
+                                (click)="clear()">Limpiar</button>
+                        </div>
+                        <div class="d-grid">
+                            <button (click)="touch()" [disabled]="loginForm.invalid" type="submit"
+                                class="btn btn-primary" name="button" data-bs-dismiss="modal">Iniciar Sesión</button>
+                        </div>
+                        <div class="d-grid">
+                            <button routerLink="/home" type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                name="button">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Static Login Modal-->
+
+<!--Modal Persona-->
+<div class="modal fade" id="personForm" tabindex="-1" aria-labelledby="addPersonLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPersonLabel">Persona</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form novalidate #f="ngForm" [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value.id)">
+                    <input type="hidden" formControlName="id" name="id">
+
+                    <div class="form-group">
+                        <input type="text" name="name" formControlName="name" class="form-control" id="persona_name"
+                            placeholder="Nombre">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="lastname" formControlName="lastname" class="form-control" id="persona_lastname"
+                            placeholder="Apellido">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="cuit" formControlName="cuit" class="form-control" id="cuit"
+                            placeholder="Cuit (11 catacteres max.)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="url_img" formControlName="url_img" class="form-control" id="persona_url_img"
+                            placeholder="Url de la imagen: (max. 100 caracteres)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="interest" formControlName="interest" class="form-control" id="interest"
+                            placeholder="Intereses">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="birthday" formControlName="birthday" class="form-control" id="birthday"
+                            placeholder="Fecha de cumplaños (dd/mm/aaaa)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="location" formControlName="location" class="form-control" id="location"
+                            placeholder="Lugar de residencia (Provincia, Pais)">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button [disabled]="!f.valid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                            Save changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Person Editing Modal-->
+<!--Header-->
+<header>
+    <nav class="container-fluid navbar fixed-top bg-dark">
+        <div class="p-2">
+            <a class="navbar-brand"><a href="https://argentinaprograma.inti.gob.ar/"><img src="assets/images/APLogo.png"
+                        alt="logo_argentina-programa" width=100></a></a>
+        </div>
+        <div class="p-1">
+            <a class="navbar-brand"> <a href="https://argentinaprograma.inti.gob.ar/"><img
+                        src="assets/images/LogosInti_desarrolloP.png" alt="logo-inti-desarrolloProductivoArg"
+                        width=120></a></a>
+        </div>
+        <div class="col d-flex justify-content-end mx-1">
+            <div class="social-icons rounded-circle" style="font-size: 1.1rem;">
+                <a routerLink="/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+            </div>
+            <div class="social-icons rounded-circle" style="font-size: 1.1rem;">
+                <a routerLink="/"><i class="fab fa-github fa-lg fa-fw"></i></a>
+            </div>
+            <div class="social-icons rounded-circle" style="font-size: 1.1rem;">
+                <a routerLink="/"><i class="fas fa-globe-americas fa-lg fa-fw"></i></a>
+            </div>
+        </div>
+        <section *ngIf="!isUserLogged" aria-hidden="false">
+            <div class="d-flex justify-content-end" style="width:5rem; color: antiquewhite; font-weight: bold;">
+                <button class="btn btn-outline-light" type="button" style="width: 6rem;" data-bs-toggle="modal"
+                    data-bs-target="#loginForm">
+                    Login </button>
+            </div>
+        </section>
+        <section *ngIf="isUserLogged" aria-hidden="true">
+            <div class="d-flex justify-content-end">
+                <button (click)="logout()" class="btn btn-outline-light" style="width: 6rem;">
+                    Logout
+                </button>
+            </div>
+        </section>
+    </nav>
+</header>
+<!-- Banner -->
+<div class="container-fluid fixed jumbotron mt-5">
+    <div class="container d-flex flex-column-reverse justify-content-center">
+        <div class="row" *ngFor="let item of personList; let i = index">
+            <span class="container position-absolute my-1 mx-2">
+                <img type="button" data-bs-toggle="modal" data-bs-target="#personForm" (click)="onEditPerson(i)"
+                    [src]="item.url_img" class="rounded-circle" alt="steve-jobs-cv" width="195" height=auto>
+            </span>
+        </div>
+    </div>
+</div>
+<!--Info usuario-->
+<section class="container-fluid p-3">
+    <div class="container" *ngFor="let item of personList">
+        <div class="row">
+            <div class="col-12" row="nombre-row">
+                <h3 class="card-title">{{item.name}}&nbsp;&nbsp;{{item.lastname}}</h3>
+                <div class="d-none d-sm-block">
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item">
+                            <a routerLink="/"></a>
+                            <img [src]="expImage" [alt]="companyName" width=34 height=auto>
+                        </li>
+                        <li class="list-group-item">
+                            <p>{{companyName}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12" row="subtitulo-row">
+                <p class="card-text">{{expPosition}} del {{companyName}}</p>
+                <div class="d-none d-sm-flex">
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item">
+                            <a routerLink="/"></a>
+                            <img src="{{eduImage}}" alt="uba.png" width=34 height=auto>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="titulo-uba">{{schoolName}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="segundo-subtitulo">
+            <p class="card-text" class="link-contacto">
+                {{item.location}} <a
+                    href="mailto:test@gmail.com?Subject=Quiero%20acordar%20un%20meeting%20contigo">&nbsp;Información de
+                    contacto</a>
+            </p>
+        </div>
+    </div>
+</section>
+<hr>

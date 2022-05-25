@@ -1,0 +1,95 @@
+{
+    "name": "Manuel Sadosky",
+    "img": "assets/images/steve-jobs-joven.png", 
+    "position": "Informático en CONICET",
+    "company": {
+        "name": "CONICET",
+        "img": "assets/images/conicet.png",
+        "url": "https://si.conicet.gov.ar/cas/login?service=https%3A%2F%2Fsi.conicet.gov.ar%2Fintranet%2Flogin%2Fcas"
+    },
+    "school": {
+        "name": "Universidad de Buenos Aires",
+        "img": "assets/images/uba.png",
+        "url": "https://www.ubaxxicampusvirtual.uba.ar/"
+    },
+    "location": "Buenos Aires (Argentina)",
+    "about": "Matemático, físico e informático argentino considerado por muchos como el padre de la computación Argentina.",
+    "experience": [
+        {
+            "position": "Backend Developer",
+            "company": "Pixar",
+            "img": "assets/images/logo_bkn.png",
+            "mode": "Jornada parcial",
+            "month": "Marzo",
+            "start": 2019,
+            "end": "Actualidad",
+            "timeElapsed": "2 años y 6 meses"
+        }
+    ],
+    "education": [
+        {
+            "school": "UTN",
+            "title": "Ingenieria",
+            "career": "Sistemas Computacionales",
+            "img": "assets/images/utn.png",
+            "score": 0,
+            "start": 2019,
+            "end": 2023
+        },
+        {
+            "school": "Centro de Enseñanza Ténica Industrial",
+            "title": "Tecnólogo",
+            "career": "Desarrollo de Software",
+            "img": "assets/images/tecnica.png",
+            "score": 82,
+            "start": 2014,
+            "end": 2018
+        },
+        {
+            "school": "Escuela Secundaria Técnica 14",
+            "title": "Técnico en Electrónica",
+            "career": "Comunicación y Sistemas de Control",
+            "img": "assets/images/esc_14.png",
+            "score": 0,
+            "start": 2012,
+            "end": 2014
+        }
+    ],
+    "aptitudes": [
+        {
+            "name": "Resolución de problemas",            
+            "confirms": 2,
+            "confirmsNames": [
+                {
+                    "name": "Nikolai Emmanuel Bayron"
+                }
+            ]
+        }
+    ],
+    "achievements": [
+        {
+            "name": "Huaro App"
+        },
+        {
+            "name": "Lanterns 19/09"
+        }
+    ],
+    "progress": [
+        {
+            "name": "HTML",
+            "quote": "Lorem ipsum dolor sit amet nsectetur adipisicing"
+        },
+        {
+            "name": "CSS",
+            "quote": "Lorem ipsum dolor sit amet nsectetur adipisicing"
+        },
+        {
+            "name": "JavaScript",
+            "quote": "Lorem ipsum dolor sit amet nsectetur adipisicing"
+        },
+        {
+            "name": "MySQL",
+            "quote": "Lorem ipsum dolor sit amet nsectetur adipisicing"
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+<!--Aptitudes y Validaciones-->
+<!--Modales add - edit - delete-->
+<!-- Add Aptitude -->
+<div class="modal fade" id="aptitudeForm" tabindex="-1" aria-labelledby="addAptitudeLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAptitudeLabel">Aptitudes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form novalidate #f="ngForm" [formGroup]="aptitudeForm" (ngSubmit)="onSubmit(aptitudeForm.value.id)">
+                    <input type="hidden" formControlName="id" name="id">
+
+                    <div class="form-group">
+                        <input type="text" name="name" formControlName="name" class="form-control" id="name"
+                            placeholder="Nombre de la aptitud">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="confirmerName" formControlName="confirmerName" class="form-control"
+                            id="confirmerName" placeholder="Persona que avala dicha aptitud ">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="description" formControlName="description" class="form-control"
+                            id="description" placeholder="Descripción">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button [disabled]="!f.valid" type="submit" class="btn btn-primary">
+                            Save changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7">
+                <h3>Aptitudes y Validaciones</h3>
+            </div>
+            <div class="col-4 text-end" *ngIf="isUserLogged">
+                <button class="editButton" type="button" data-bs-toggle="modal" data-bs-target="#aptitudeForm"
+                    (click)="onNewAptitude()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="article">
+            <ul class="listas">
+                <li *ngFor="let aptitude of aptitudeList, let i = index" class="listas">
+                    <div class="row">
+                        <div class="col-10 d-sm-block">
+                            <h5 class="card-title">{{aptitude.name}}</h5>
+                            <span>
+                                <p class="card-text">{{aptitude.description}}</p>
+                            </span>
+                            <p class="card-text"><b>{{aptitude.confirmerName}}</b></p>
+                        </div>
+                        <div class="col-1" *ngIf="isUserLogged">
+                            <button class="editButton" type="button" data-bs-toggle="modal"
+                                data-bs-target="#achieveForm" (click)="onEditAptitude(i)">
+                                <i class="fas fa-pen"></i> 
+                            </button>
+                        </div>
+                        <div class="col-1" *ngIf="isUserLogged">
+                            <button (click)="onDeleteAptitude(i)" class="editButton" type="button">
+                                <i class="fa fa-trash"></i> 
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<hr>

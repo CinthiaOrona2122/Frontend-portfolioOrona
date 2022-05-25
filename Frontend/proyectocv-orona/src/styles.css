@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  color: black;
+}
+
+article>div.row {
+  margin-bottom: 1rem;
+}
+
+h3 {
+  margin-bottom: 1.3rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h4 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: darkolivegreen;
+}
+
+a:link,
+.pen,
+.plus,
+.trash {
+  color: #3d4949;
+  font-size: 1rem;
+}
+
+div.social-icons,
+.fab,
+.fas,
+.fa {
+  color: #837979;
+}
+
+div.social-icons:hover {
+  background-color: #98e481;
+}
+
+div.social-icons>a:link:hover {
+  color: #3d4949;
+}
+
+p.link-contacto {
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+div.segundo-subtitulo {
+  bottom: 15px;
+  position: relative;
+}
+
+p>a:link:hover {
+  color: #487aa08e;
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  font-size: 0.7rem;
+}
+
+[row="nombre-row"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+[row="subtitulo-row"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+ul.list-group-horizontal {
+  margin-right: 30px;
+}
+
+.list-group-item {
+  padding: 1%;
+}
+
+.list-group-item,
+a:link {
+  text-decoration: none;
+  border: none;
+}
+
+.list-group-item:hover {
+  color: #4a9cd9;
+}
+
+.list-group-item,
+.titulo-uba {
+  font-size: 0.7rem;
+  word-wrap: break-word;
+  width: 75px;
+}
+
+.listas {
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.card-title {
+  margin: 0 .1rem 1rem 0;
+  font-weight: bold;
+  color: darkolivegreen;
+}
+
+.card-text {
+  font-size: 1rem;
+  text-align: justify;
+  color: black;
+  font-weight: 200;
+}
+
+.btn {
+  font-size: 0.7rem;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+/*Botones info-usuario*/
+.btn {
+  margin: 5px 0 3px 0;
+  border: 1px solid lightgray;
+}
+
+.btn:hover {
+  background: #4a9cd9;
+}
+
+button.btn-outline-light,
+a:link:hover {
+  color: #3e8f8f;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #d1d8dd;
+  color: #546464;
+  font-weight: bold;
+}
+
+.btn-outline-danger:hover {
+  background: #f62929;
+}
+
+.editButton {
+  border-style: none;
+  font-size: 0.8rem;
+  background-color: #fff;
+}
+
+.editButton:hover {
+  cursor: pointer;
+}
+
+
+input {
+  margin-bottom: 1rem;
+}

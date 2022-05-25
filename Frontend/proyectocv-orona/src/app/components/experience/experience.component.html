@@ -1,0 +1,102 @@
+<!--Experiencia-->
+<!--Modales add - edit - delete-->
+<!-- Add Experiencia -->
+<div class="modal fade" id="expForm" tabindex="-1" aria-labelledby="addExpLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addExpLabel">Experiencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form novalidate #f="ngForm" [formGroup]="expForm" (ngSubmit)="onSubmit(expForm.value.id)">
+                    <input type="hidden" formControlName="id" name="id">
+
+                    <div class="form-group">
+                        <input type="text" name="job_position" formControlName="job_position" class="form-control"
+                            id="job_position" placeholder="Puesto">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="company_name" formControlName="company_name" class="form-control"
+                            id="exp_company_name" placeholder="Nombre de la empresa">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="url_img" formControlName="url_img" class="form-control" id="exp_url_img"
+                            placeholder="Url de la imagen: (max. 100 caracteres)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="job_type" formControlName="job_type" class="form-control" id="exp_job_type"
+                            placeholder="Modalidad">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="dateStart" formControlName="dateStart" class="form-control"
+                            id="dateStart" placeholder="Comienzo">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="dateEnd" formControlName="dateEnd" class="form-control" id="exp_dateEnd"
+                            placeholder="Fin">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="url" formControlName="url" class="form-control" id="exp_url"
+                            placeholder="Url: (max. 100 caracteres)">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button [disabled]="!f.valid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                            Save changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<section class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-11">
+                <h3>Experiencia</h3>
+            </div>
+            <div class="col-1" *ngIf="isUserLogged">
+                <button class="editButton" type="button" data-bs-toggle="modal" data-bs-target="#expForm"
+                    (click)="onNewExperience()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <article class="article">
+            <!--articulo nuevo-->
+            <ul class="listas">
+                <li *ngFor="let exp of experienceList, let i = index" class="listas">
+                    <div class="row">
+                        <div class="col-2 d-flex justify-content-center">
+                            <img [src]="exp.url_img" [alt]="exp.company_name" width=70 height=70>
+                        </div>
+                        <div class="col-8">
+                            <h4 class="card-title">{{exp.job_position}} </h4>
+                            <p class="card-text">{{exp.company_name}} -
+                                {{exp.job_type}}<br><time> {{exp.dateStart}} </time> - {{exp.dateEnd}}</p>
+                            <p class="card-text">{{exp.url}}</p>
+                        </div>
+                        <div class="col-1" *ngIf="isUserLogged">
+                            <button class="editButton" type="button" data-bs-toggle="modal" data-bs-target="#expForm"
+                                (click)="onEditExperience(i)">
+                                <i class="fas fa-pen"></i> 
+                            </button>
+                        </div>
+                        <div class="col-1" *ngIf="isUserLogged">
+                            <button (click)="onDeleteExperience(i)" class="editButton" type="button">
+                                <i class="fa fa-trash"></i> 
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </article>
+    </div>
+</section>
+<hr>

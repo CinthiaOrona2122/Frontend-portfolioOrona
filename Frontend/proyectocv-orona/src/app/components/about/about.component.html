@@ -1,0 +1,72 @@
+<!--Modales add - edit - delete-->
+<!-- Add About -->
+<div class="modal fade" id="aboutForm" tabindex="-1" aria-labelledby="addAboutLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addAboutLabel">About</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form novalidate #f="ngForm" [formGroup]="aboutForm" (ngSubmit)="onSubmit(aboutForm.value.id)">
+          <input type="hidden" formControlName="id" name="id">
+
+          <div class="form-group">
+            <input type="text" name="text" formControlName="text" class="form-control" id="about_text"
+              placeholder="Escribe acerca de ti">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button [disabled]="!f.valid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+              Save changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!--Acerca de-->
+<section class="container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-11">
+        <h3>Acerca de</h3>
+      </div>
+      <div class="col-1" *ngIf="isUserLogged">   
+        <button class="editButton" type="button" data-bs-toggle="modal" data-bs-target="#aboutForm"
+          (click)="onNewAbout()">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+    <article class="article">
+      <ul class="listas">
+        <li *ngFor="let item of aboutList, let i = index" class="listas">
+          <div class="row">
+            <div class="col-8">
+              <p class="card-text">{{ item.text }}</p>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-1" *ngIf="isUserLogged">
+              <button class="editButton" type="button" data-bs-toggle="modal" data-bs-target="#aboutForm"
+                (click)="onEditAbout(i)">
+                <i class="fas fa-pen"></i>
+              </button>
+            </div>
+            <div class="col-1" *ngIf="isUserLogged">
+              <button (click)="onDeleteAbout(i)" class="editButton" type="button">
+                <i class="fa fa-trash"></i> 
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </article>
+  </div>
+</section>
+<hr>

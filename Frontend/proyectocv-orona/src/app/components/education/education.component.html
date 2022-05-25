@@ -1,0 +1,109 @@
+<!--Educacion-->
+<!--Modales add - edit - delete-->
+<!-- Add About -->
+<div class="modal fade" id="eduForm" tabindex="-1" aria-labelledby="addEduLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addEduLabel">Educación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form novalidate #f="ngForm" [formGroup]="eduForm" (ngSubmit)="onSubmit(eduForm.value.id)">
+                    <input type="hidden" formControlName="id" name="id">
+
+                    <div class="form-group">
+                        <input type="text" name="school_name" formControlName="school_name" class="form-control"
+                            id="school_name" placeholder="Nombre">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="title" formControlName="title" class="form-control" id="title"
+                            placeholder="Titulo">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="career" formControlName="career" class="form-control" id="career"
+                            placeholder="Carrera">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="url_img" formControlName="url_img" class="form-control" id="url_img"
+                            placeholder="Url de la imagen: (max. 100 caracteres)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="edu_type" formControlName="edu_type" class="form-control" id="edu_type"
+                            placeholder="Modalidad">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="score" formControlName="score" class="form-control" id="score"
+                            placeholder="Puntaje">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="dateStart" formControlName="dateStart" class="form-control"
+                            id="dateStart" placeholder="Comienzo">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="dateEnd" formControlName="dateEnd" class="form-control" id="dateEnd"
+                            placeholder="Fin">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="url" formControlName="url" class="form-control" id="url"
+                            placeholder="Url: (max. 100 caracteres)">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button [disabled]="!f.valid" type="submit" class="btn btn-primary">
+                            Save changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-11">
+                <h3>Educación</h3>
+            </div>
+            <div class="col-1" *ngIf="isUserLogged">
+                <!--agregar - plus - modal-->
+                <button class="editButton" type="button" data-bs-toggle="modal" data-bs-target="#eduForm"
+                    (click)="onNewEducation()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <article class="article">
+            <ul class="listas">
+                <li *ngFor="let edu of educationList, let i = index" class="listas">
+                    <div class="row">
+                        <div class="col-2 d-flex justify-content-center">
+                            <img [src]="edu.url_img" [alt]="edu.school_name" width=70 height=70>
+                        </div>
+                        <div class="col-8">
+                            <h4 class="card-title"> {{edu.school_name}} </h4>
+                            <p class="card-text"> {{edu.title}}, {{edu.career}},
+                                {{edu.score}}<br><time> {{edu.dateStart}} </time> - <time>
+                                    {{edu.dateEnd}}</time> <br>{{edu.edu_type}} <br> {{edu.url}}</p>
+                        </div>
+                        <div class="col-1" *ngIf="isUserLogged">
+                            <button class="editButton" type="button" data-bs-toggle="modal" data-bs-target="#eduForm"
+                                (click)="onEditEducation(i)">
+                                <i class="fas fa-pen"></i> <!-- boton lapiz -->
+                            </button>
+                        </div>
+                        <div class="col-1" *ngIf="isUserLogged">
+                            <button (click)="onDeleteEducation(i)" class="editButton" type="button">
+                                <i class="fa fa-trash"></i> <!-- boton basurita -->
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </article>
+    </div>
+</section>
+<hr>
